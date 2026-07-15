@@ -35,6 +35,14 @@ bun run typecheck
 The sample plane walkthrough lives at
 `examples/sample-plane/WALKTHROUGH.md`.
 
+## Docs
+
+- [`docs/CONCEPTS.md`](docs/CONCEPTS.md): the shared vocabulary behind seats,
+  envelopes, receipts, ledgers, leases, and execution planes.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): package boundaries and plane
+  conformance rules.
+- [`docs/README.md`](docs/README.md): the core docs index.
+
 ## Product Boundary
 
 Open core, closed reference planes:
