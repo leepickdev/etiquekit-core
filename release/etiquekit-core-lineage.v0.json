@@ -8,7 +8,7 @@
     "publish_authorized": false
   },
   "source": {
-    "workspace": "/Users/justinemassawe/Documents/workspaces/etiquette-release-101",
+    "workspace": "private-source-workspace",
     "accepted_base": "4434de1c1c937c4313bece7fcc0c8bbe4ad7df5e",
     "accepted_f1": "1bec68ba7c9d0444e67807a10dcf01a778772c22",
     "sample_plane": "e6bec9b",

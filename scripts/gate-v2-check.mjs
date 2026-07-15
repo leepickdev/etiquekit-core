@@ -97,15 +97,10 @@ for (const file of files.filter((f) => f.endsWith('.ts'))) {
 }
 
 const textFiles = files.filter((f) => /\.(md|json|ts|mjs|txt)$/.test(f));
+const macUserPathPattern = /(^|[^a-zA-Z0-9_])\/Users\/[^/\s"']+\//;
 for (const file of textFiles) {
   const text = readFileSync(join(root, file), 'utf8');
-  if (
-    text.includes('/Users/justinemassawe/') &&
-    file !== 'release/etiquekit-core-lineage.v0.json' &&
-    file !== 'scripts/gate-v2-check.mjs'
-  ) {
-    fail(`local machine path leaked outside lineage manifest: ${file}`);
-  }
+  if (macUserPathPattern.test(text)) fail(`local machine path leaked in public core candidate: ${file}`);
 }
 
 if (failures.length > 0) {
