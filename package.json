@@ -9,6 +9,7 @@
     "packages/core"
   ],
   "scripts": {
+    "ci": "bun run gate:v2 && bun run typecheck && bun test",
     "gate:v2": "bun scripts/gate-v2-check.mjs",
     "test": "bun test contracts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
