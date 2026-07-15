@@ -10,7 +10,8 @@ conformance checks, and a sample plane.
 
 It is not the local execution plane and not the managed execution plane:
 
-- `@etiquekit/etq` is Leepick's thin local execution plane.
+- `@etiquekit/etq` is Leepick's thin local execution plane and consumes this
+  package.
 - `remote-etq` is Leepick's private managed execution plane.
 - The open reference is the conformance kit plus `examples/sample-plane`.
 

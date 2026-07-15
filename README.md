@@ -13,10 +13,13 @@ state.
 
 ```sh
 bun add @etiquekit/core
+# or
+npm install @etiquekit/core
 ```
 
-Publication is gated separately. This candidate proves the public source tree
-and package boundary before the `0.x` publish word.
+`@etiquekit/core@0.1.0` is published as the open contract package. Most teams
+will install `@etiquekit/etq` for the local CLI; `etq` depends on this package
+and dogfoods the same contracts third-party planes consume.
 
 ## Verify
 
@@ -38,8 +41,11 @@ Open core, closed reference planes:
 
 - `@etiquekit/core` is public: schemas, state machines, authority/refusal rules,
   plane profiles, fixtures, conformance, and the sample plane.
-- `@etiquekit/etq` is Leepick's thin local execution plane: installable and
-  source-visible as distributed, but closed-development.
+- [`@etiquekit/etq`](https://www.npmjs.com/package/@etiquekit/etq) is
+  Leepick's thin local execution plane: CLI, git journal, worktree/session
+  ergonomics, local evidence return, and developer-facing docs. Its public home
+  is [`leepickdev/etq`](https://github.com/leepickdev/etq), and it consumes
+  `@etiquekit/core`.
 - `remote-etq` is Leepick's private managed execution plane.
 
 License and distribution rights for an npm artifact are not the same as project
