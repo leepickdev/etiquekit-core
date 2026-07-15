@@ -1,6 +1,6 @@
 # Public / Private Boundary
 
-Status: draft pending Zach edit, per `bus://5036` Annex B and `bus://5040`.
+Status: ratified and implemented for the public core split.
 
 ## Public Open Plane
 
@@ -15,13 +15,14 @@ contain:
 
 `@etiquekit/core` contains schemas, pure state machines, authority and refusal
 rules, plane capability profiles, conformance checks, and example code showing
-how a third party can build a conformant execution plane.
+how a third party can build a conformant execution plane. The package is
+published on npm as `@etiquekit/core`.
 
 ## Closed Reference Planes
 
-`@etiquekit/etq` is Leepick's thin local execution plane. It is installable and
-source-visible as distributed through npm, but it is not an open-development
-public repository and it is not the open reference implementation.
+`@etiquekit/etq` is Leepick's thin local execution plane. It is installable
+through npm, has a public home at `leepickdev/etq`, and consumes
+`@etiquekit/core`; it is not the open reference implementation.
 
 `remote-etq` is Leepick's private managed execution plane.
 
