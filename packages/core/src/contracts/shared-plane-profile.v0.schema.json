@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etiquekit.com/schemas/shared-plane-profile.v0.schema.json",
+  "title": "Etiquette shared plane capability profile v0",
+  "type": "object",
+  "required": ["schema_version", "plane_id", "profile", "shared"],
+  "properties": {
+    "schema_version": { "const": "plane-contract.v0" },
+    "plane_id": { "type": "string", "minLength": 1 },
+    "profile": { "enum": ["shared", "local", "remote"] },
+    "shared": {
+      "type": "object",
+      "required": ["admission", "leases", "receipts", "refusals", "idempotency", "authority"],
+      "additionalProperties": false,
+      "properties": {
+        "admission": {
+          "type": "object",
+          "required": ["task_envelope_required", "invalid_envelope_outcome"],
+          "additionalProperties": false,
+          "properties": {
+            "task_envelope_required": { "const": true },
+            "invalid_envelope_outcome": { "const": "typed_refusal" }
+          }
+        },
+        "leases": {
+          "type": "object",
+          "required": ["point_of_effect_validation", "expired_outcome", "revoked_outcome"],
+          "additionalProperties": false,
+          "properties": {
+            "point_of_effect_validation": { "const": true },
+            "expired_outcome": { "const": "typed_refusal" },
+            "revoked_outcome": { "const": "typed_refusal" }
+          }
+        },
+        "receipts": {
+          "type": "object",
+          "required": ["terminal_receipt_required", "evidence_refs_required"],
+          "additionalProperties": false,
+          "properties": {
+            "terminal_receipt_required": { "const": true },
+            "evidence_refs_required": { "const": true }
+          }
+        },
+        "refusals": {
+          "type": "object",
+          "required": ["typed", "machine_readable_reason"],
+          "additionalProperties": false,
+          "properties": {
+            "typed": { "const": true },
+            "machine_readable_reason": { "const": true }
+          }
+        },
+        "idempotency": {
+          "type": "object",
+          "required": ["retry_semantics_declared", "silent_duplicate_success_allowed", "duplicate_effects_detectable"],
+          "additionalProperties": false,
+          "properties": {
+            "retry_semantics_declared": { "const": true },
+            "silent_duplicate_success_allowed": { "const": false },
+            "duplicate_effects_detectable": { "const": true }
+          }
+        },
+        "authority": {
+          "type": "object",
+          "required": ["plane_can_self_grant", "conformance_can_authorize", "receipt_can_authorize"],
+          "additionalProperties": false,
+          "properties": {
+            "plane_can_self_grant": { "const": false },
+            "conformance_can_authorize": { "const": false },
+            "receipt_can_authorize": { "const": false }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etiquekit.com/schemas/local-plane-profile.v0.schema.json",
+  "title": "Etiquette local plane capability profile v0",
+  "type": "object",
+  "required": ["schema_version", "plane_id", "profile", "local"],
+  "properties": {
+    "schema_version": { "const": "plane-contract.v0" },
+    "plane_id": { "type": "string", "minLength": 1 },
+    "profile": { "const": "local" },
+    "local": {
+      "type": "object",
+      "required": ["git", "worktrees", "processes"],
+      "additionalProperties": false,
+      "properties": {
+        "git": {
+          "type": "object",
+          "required": ["repository_bound", "commit_refs_preserved"],
+          "additionalProperties": false,
+          "properties": {
+            "repository_bound": { "const": true },
+            "commit_refs_preserved": { "const": true }
+          }
+        },
+        "worktrees": {
+          "type": "object",
+          "required": ["isolated_execution_supported", "cleanup_is_explicit"],
+          "additionalProperties": false,
+          "properties": {
+            "isolated_execution_supported": { "const": true },
+            "cleanup_is_explicit": { "const": true }
+          }
+        },
+        "processes": {
+          "type": "object",
+          "required": ["exit_status_captured", "stdout_stderr_bounded"],
+          "additionalProperties": false,
+          "properties": {
+            "exit_status_captured": { "const": true },
+            "stdout_stderr_bounded": { "const": true }
+          }
+        }
+      }
+    }
+  }
+}

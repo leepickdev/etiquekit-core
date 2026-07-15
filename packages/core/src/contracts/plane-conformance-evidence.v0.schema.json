@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etiquekit.com/schemas/plane-conformance-evidence.v0.schema.json",
+  "title": "Etiquette plane conformance evidence v0",
+  "type": "object",
+  "required": ["schema_version", "plane_id", "observations"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "plane-conformance-evidence.v0" },
+    "plane_id": { "type": "string", "minLength": 1 },
+    "observations": {
+      "type": "object",
+      "required": ["admission", "leases", "receipts", "refusals", "idempotency", "authority"],
+      "additionalProperties": false,
+      "properties": {
+        "admission": {
+          "type": "object",
+          "required": ["valid_envelope_accepted", "invalid_envelope_refused", "refusal_reason"],
+          "additionalProperties": false,
+          "properties": {
+            "valid_envelope_accepted": { "const": true },
+            "invalid_envelope_refused": { "const": true },
+            "refusal_reason": { "type": "string", "minLength": 1 }
+          }
+        },
+        "leases": {
+          "type": "object",
+          "required": ["active_allowed", "expired_refused", "revoked_refused", "point_of_effect_refused"],
+          "additionalProperties": false,
+          "properties": {
+            "active_allowed": { "const": true },
+            "expired_refused": { "const": true },
+            "revoked_refused": { "const": true },
+            "point_of_effect_refused": { "const": true }
+          }
+        },
+        "receipts": {
+          "type": "object",
+          "required": ["valid_receipt_accepted", "missing_evidence_refused"],
+          "additionalProperties": false,
+          "properties": {
+            "valid_receipt_accepted": { "const": true },
+            "missing_evidence_refused": { "const": true }
+          }
+        },
+        "refusals": {
+          "type": "object",
+          "required": ["typed_reasons"],
+          "additionalProperties": false,
+          "properties": {
+            "typed_reasons": {
+              "type": "array",
+              "minItems": 3,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "idempotency": {
+          "type": "object",
+          "required": ["repeat_outcome", "silent_duplicate"],
+          "additionalProperties": false,
+          "properties": {
+            "repeat_outcome": { "enum": ["same_result", "typed_refusal", "explicit_duplicate_record"] },
+            "silent_duplicate": { "const": false }
+          }
+        },
+        "authority": {
+          "type": "object",
+          "required": ["can_authorize", "can_merge", "can_close", "can_promote"],
+          "additionalProperties": false,
+          "properties": {
+            "can_authorize": { "const": false },
+            "can_merge": { "const": false },
+            "can_close": { "const": false },
+            "can_promote": { "const": false }
+          }
+        }
+      }
+    }
+  }
+}

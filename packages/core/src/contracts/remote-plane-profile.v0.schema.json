@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://etiquekit.com/schemas/remote-plane-profile.v0.schema.json",
+  "title": "Etiquette remote plane capability profile v0",
+  "type": "object",
+  "required": ["schema_version", "plane_id", "profile", "remote"],
+  "properties": {
+    "schema_version": { "const": "plane-contract.v0" },
+    "plane_id": { "type": "string", "minLength": 1 },
+    "profile": { "const": "remote" },
+    "remote": {
+      "type": "object",
+      "required": ["sequencing", "tenancy", "credentials", "hard_stop"],
+      "additionalProperties": false,
+      "properties": {
+        "sequencing": {
+          "type": "object",
+          "required": ["ordered_per_stream", "idempotency_key_required"],
+          "additionalProperties": false,
+          "properties": {
+            "ordered_per_stream": { "const": true },
+            "idempotency_key_required": { "const": true }
+          }
+        },
+        "tenancy": {
+          "type": "object",
+          "required": ["tenant_context_required", "cross_tenant_access_denied"],
+          "additionalProperties": false,
+          "properties": {
+            "tenant_context_required": { "const": true },
+            "cross_tenant_access_denied": { "const": true }
+          }
+        },
+        "credentials": {
+          "type": "object",
+          "required": ["scoped", "short_lived", "revocable"],
+          "additionalProperties": false,
+          "properties": {
+            "scoped": { "const": true },
+            "short_lived": { "const": true },
+            "revocable": { "const": true }
+          }
+        },
+        "hard_stop": {
+          "type": "object",
+          "required": ["out_of_band_termination", "credential_revocation", "promotion_block"],
+          "additionalProperties": false,
+          "properties": {
+            "out_of_band_termination": { "const": true },
+            "credential_revocation": { "const": true },
+            "promotion_block": { "const": true }
+          }
+        }
+      }
+    }
+  }
+}

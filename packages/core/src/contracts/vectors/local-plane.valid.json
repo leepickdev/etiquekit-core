@@ -1,0 +1,23 @@
+{
+  "name": "etq-local-plane-valid",
+  "profile": "local",
+  "valid": true,
+  "candidate": {
+    "schema_version": "plane-contract.v0",
+    "plane_id": "etq-local",
+    "profile": "local",
+    "shared": {
+      "admission": { "task_envelope_required": true, "invalid_envelope_outcome": "typed_refusal" },
+      "leases": { "point_of_effect_validation": true, "expired_outcome": "typed_refusal", "revoked_outcome": "typed_refusal" },
+      "receipts": { "terminal_receipt_required": true, "evidence_refs_required": true },
+      "refusals": { "typed": true, "machine_readable_reason": true },
+      "idempotency": { "retry_semantics_declared": true, "silent_duplicate_success_allowed": false, "duplicate_effects_detectable": true },
+      "authority": { "plane_can_self_grant": false, "conformance_can_authorize": false, "receipt_can_authorize": false }
+    },
+    "local": {
+      "git": { "repository_bound": true, "commit_refs_preserved": true },
+      "worktrees": { "isolated_execution_supported": true, "cleanup_is_explicit": true },
+      "processes": { "exit_status_captured": true, "stdout_stderr_bounded": true }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "etiquekit-core-lineage.v0",
+  "candidate": {
+    "package": "@etiquekit/core",
+    "version": "0.1.0",
+    "public_home": "leepickdev/etiquekit-core",
+    "status": "candidate",
+    "publish_authorized": false
+  },
+  "source": {
+    "workspace": "/Users/justinemassawe/Documents/workspaces/etiquette-release-101",
+    "accepted_base": "4434de1c1c937c4313bece7fcc0c8bbe4ad7df5e",
+    "accepted_f1": "1bec68ba7c9d0444e67807a10dcf01a778772c22",
+    "sample_plane": "e6bec9b",
+    "bus_refs": [
+      "bus://5023",
+      "bus://5026",
+      "bus://5037",
+      "bus://5039",
+      "bus://5040",
+      "bus://5041"
+    ]
+  },
+  "boundary": {
+    "open": [
+      "packages/core",
+      "examples/sample-plane",
+      "contracts",
+      "governance docs"
+    ],
+    "closed": [
+      "packages/control",
+      "@etiquekit/etq local exec plane",
+      "remote-etq managed exec plane"
+    ]
+  },
+  "notes": [
+    "Candidate construction only; no GitHub repo creation, push, npm publish, or release signing authorized.",
+    "Walkthrough FR-1/FR-2 from bus://5039 remains owned by v3-droid-team unless folded before final publication."
+  ]
+}

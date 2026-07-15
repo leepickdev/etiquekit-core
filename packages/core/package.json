@@ -1,0 +1,26 @@
+{
+  "name": "@etiquekit/core",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "Portable Etiquette contracts, schemas, guards, and pure state transforms.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./conformance": "./src/conformance/index.ts"
+  },
+  "files": [
+    "src/"
+  ],
+  "dependencies": {
+    "zod": "4.3.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leepickdev/etiquekit-core.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/leepickdev/etiquekit-core/issues"
+  }
+}

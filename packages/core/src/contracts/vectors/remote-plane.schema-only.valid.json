@@ -1,0 +1,24 @@
+{
+  "name": "remote-plane-schema-only-valid",
+  "profile": "remote",
+  "valid": true,
+  "candidate": {
+    "schema_version": "plane-contract.v0",
+    "plane_id": "example-remote-plane",
+    "profile": "remote",
+    "shared": {
+      "admission": { "task_envelope_required": true, "invalid_envelope_outcome": "typed_refusal" },
+      "leases": { "point_of_effect_validation": true, "expired_outcome": "typed_refusal", "revoked_outcome": "typed_refusal" },
+      "receipts": { "terminal_receipt_required": true, "evidence_refs_required": true },
+      "refusals": { "typed": true, "machine_readable_reason": true },
+      "idempotency": { "retry_semantics_declared": true, "silent_duplicate_success_allowed": false, "duplicate_effects_detectable": true },
+      "authority": { "plane_can_self_grant": false, "conformance_can_authorize": false, "receipt_can_authorize": false }
+    },
+    "remote": {
+      "sequencing": { "ordered_per_stream": true, "idempotency_key_required": true },
+      "tenancy": { "tenant_context_required": true, "cross_tenant_access_denied": true },
+      "credentials": { "scoped": true, "short_lived": true, "revocable": true },
+      "hard_stop": { "out_of_band_termination": true, "credential_revocation": true, "promotion_block": true }
+    }
+  }
+}
