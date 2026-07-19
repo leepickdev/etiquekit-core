@@ -37,6 +37,26 @@ A session is a bounded run inside one repo, runner, or managed execution
 context. Use one for a bug fix, feature slice, review, release canary, or short
 parallel review window; not for a product, quarter, or organization.
 
+## Execution Identity And Binding
+
+A seat remains the durable routing identity. A temporary occupant has a stable
+`occupancy_id`; each runtime conversation has an opaque `session_id`; the
+observed runtime is `runner_binding_actual`; and `binding_epoch` orders rebinds
+within one `(seat_id, occupancy_id)` lineage. The roster owns whether an
+occupancy is expected or retired. Core owns only the portable meanings and
+pure validation rules.
+
+An execution binding correlates that identity with one parent seat, execution
+and subrun, exact task, profile, scope, capability set, immutable context hash,
+and requested output. It is checked again at the point of effect. Expiry is
+exclusive: `now >= expires_at` refuses.
+
+Terminal receipts reference the binding and execution. A pure compare-and-set
+transition permits one terminal append, makes an identical retry explicitly
+idempotent, and refuses a conflicting or concurrent terminal write. The
+receipt remains evidence and authority-false. Only a matching parent acceptance
+can make it eligible to bridge into canonical workflow truth.
+
 ## Receipt
 
 A receipt proves what happened: changed files or artifacts, validation results,
