@@ -10,7 +10,7 @@ describe('@etiquekit/core package boundary', () => {
 
     expect(packageJson.name).toBe('@etiquekit/core');
     expect(packageJson.private).toBe(false);
-    expect(packageJson.version).toBe('0.1.0');
+    expect(packageJson.version).toBe('0.2.0');
     expect(packageJson.dependencies).toEqual({ zod: '4.3.6' });
     expect(packageJson.dependencies.yaml).toBeUndefined();
   });
