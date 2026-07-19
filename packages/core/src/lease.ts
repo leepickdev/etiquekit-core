@@ -228,7 +228,7 @@ export function evaluateAuthorityLeaseAction(
   const lease = parseAuthorityLease(rawLease);
   const reasons: string[] = [];
   const pointInTime = Date.parse(assertIso(input.canonical_state.at, 'canonical_state.at'));
-  if (pointInTime > Date.parse(lease.expires_at)) reasons.push('lease_expired');
+  if (pointInTime >= Date.parse(lease.expires_at)) reasons.push('lease_expired');
   if (lease.revocation.canonical_revocation_ref) reasons.push('lease_revoked');
   if ((input.canonical_state.revoked_lease_ids ?? []).includes(lease.lease_id)) {
     reasons.push('lease_revoked_at_point_of_effect');

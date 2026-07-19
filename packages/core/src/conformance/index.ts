@@ -20,3 +20,11 @@ export { default as sharedPlaneProfileV0Schema } from '../contracts/shared-plane
 export { default as localPlaneProfileV0Schema } from '../contracts/local-plane-profile.v0.schema.json';
 export { default as remotePlaneProfileV0Schema } from '../contracts/remote-plane-profile.v0.schema.json';
 export { default as planeConformanceEvidenceV0Schema } from '../contracts/plane-conformance-evidence.v0.schema.json';
+
+export {
+  executionBindingConformanceFixture,
+  runExecutionBindingConformanceVectors,
+  runExecutionOccupancyConformanceVectors,
+  type ExecutionConformanceVectorResult,
+  type OccupancyConformanceResult,
+} from './execution-binding';

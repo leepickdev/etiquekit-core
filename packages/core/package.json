@@ -1,13 +1,14 @@
 {
   "name": "@etiquekit/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "type": "module",
   "license": "Apache-2.0",
   "description": "Portable Etiquette contracts, schemas, guards, and pure state transforms.",
   "exports": {
     ".": "./src/index.ts",
-    "./conformance": "./src/conformance/index.ts"
+    "./conformance": "./src/conformance/index.ts",
+    "./execution": "./src/execution.ts"
   },
   "files": [
     "src/"
