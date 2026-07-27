@@ -17,9 +17,20 @@ bun add @etiquekit/core
 npm install @etiquekit/core
 ```
 
-`@etiquekit/core@0.1.0` is published as the open contract package. Most teams
-will install `@etiquekit/etq` for the local CLI; `etq` depends on this package
-and dogfoods the same contracts third-party planes consume.
+`@etiquekit/core@0.2.0` is the current published contract package (0.2.0 adds
+the portable execution binding, plane conformance profiles, and the lease
+contract). Most teams will install `@etiquekit/etq` for the local CLI; `etq`
+depends on this package and dogfoods the same contracts third-party planes
+consume.
+
+## Release model
+
+This repository receives **assembled releases** from a private development
+monorepo — commit cadence here is release cadence, not development cadence.
+A quiet main between releases is the steady state, not abandonment: each
+release lands as a reviewed PR (see the merged PR history) containing the
+full assembled package, and the npm registry is published from exactly that
+merged content.
 
 ## Verify
 
