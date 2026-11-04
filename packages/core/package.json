@@ -14,7 +14,7 @@
     "src/"
   ],
   "dependencies": {
-    "zod": "4.3.6"
+    "zod": "4.6.6"
   },
   "repository": {
     "type": "git",
